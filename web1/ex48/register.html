@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: #41baeb;
+            font-family: "Times New Roman", serif;
+            font-size: 13px;
+        }
+        form {
+            width: 450px;
+            margin: 0 auto;
+        }
+        td {
+            font-size: 13px;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 20px 0 10px;
+        }
+        input[type="text"] {
+            border: 1px solid #666;
+        }
+        .opt {
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+    <script>
+        function dangKy() {
+            alert("Đăng ký thành công!");
+        }
+    </script>
+</head>
+<body>
+
+<form id="frmRegister" action="#" method="post">
+    <table cellspacing="3" cellpadding="0" width="100%">
+
+        <!-- Logo + tiêu đề -->
+        <tr>
+            <td colspan="2" align="center">
+                <img src="../images/Jackson.gif" alt="Jackson Electronics">
+                <h2>Registration Form</h2>
+                Register your Jackson Electronics product here
+            </td>
+        </tr>
+
+        <!-- Thông tin cá nhân -->
+        <tr>
+            <td>First Name:</td>
+            <td>
+                <input type="text" name="firstname" size="12">
+                &nbsp;&nbsp;Last Name:
+                <input type="text" name="lastname" size="12">
+            </td>
+        </tr>
+        <tr>
+            <td>Address #1:</td>
+            <td><input type="text" name="address1" size="34"></td>
+        </tr>
+        <tr>
+            <td>Address #2:</td>
+            <td><input type="text" name="address2" size="34"></td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>
+                <input type="text" name="city" size="20">
+                &nbsp;State:
+                <input type="text" name="state" size="2">
+                &nbsp;Zip:
+                <input type="text" name="zip" size="6">
+            </td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td><input type="text" name="country" size="20" value="United States"></td>
+        </tr>
+
+        <tr><td colspan="2"><hr></td></tr>
+
+        <tr>
+            <td>Product:</td>
+            <td>
+                <select name="product">
+                    <option value="Heineken" selected>Heineken</option>
+                    <option value="333">333</option>
+                    <option value="Sapporo">Sapporo</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Date Purchased:</td>
+            <td><input type="text" name="datepurchased" size="20"></td>
+        </tr>
+        <tr>
+            <td>Serial #:</td>
+            <td><input type="text" name="serial" size="20"></td>
+        </tr>
+        <tr>
+            <td valign="top">Used for:</td>
+            <td>
+                <span class="opt"><input type="radio" name="usedfor" value="Home"> Home</span>
+                <input type="radio" name="usedfor" value="Educational"> Educational Institution<br>
+                <span class="opt"><input type="radio" name="usedfor" value="Business" checked> Business</span>
+                <input type="radio" name="usedfor" value="Other"> Other<br>
+                <input type="radio" name="usedfor" value="Government"> Government
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">System (check all that apply):</td>
+            <td>
+                <span class="opt"><input type="checkbox" name="system" value="Windows"> Windows</span>
+                <input type="checkbox" name="system" value="UNIX"> UNIX<br>
+                <span class="opt"><input type="checkbox" name="system" value="Macintosh"> Macintosh</span>
+                <input type="checkbox" name="system" value="Other"> Other
+            </td>
+        </tr>
+
+        <tr><td colspan="2"><hr></td></tr>
+
+        <tr>
+            <td valign="top">Comments?:</td>
+            <td><textarea name="comments" rows="8" cols="45"></textarea></td>
+        </tr>
+
+        <tr><td colspan="2"><hr></td></tr>
+
+        <!-- Buttons -->
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="Click to register" onclick="dangKy()">
+                <input type="reset" value="Click to cancel">
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

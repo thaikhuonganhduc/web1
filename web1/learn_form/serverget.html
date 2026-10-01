@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Hiển thị thông tin</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>User:</td>
+            <td id="iduser"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td id="idpass"></td>
+        </tr>
+    </table>
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+        
+        const username = params.get("Username") || "";
+        const password = params.get("password") || "";
+
+        document.getElementById("iduser").textContent = username;
+        document.getElementById("idpass").textContent = password;
+    </script>
+</body>
+</html>

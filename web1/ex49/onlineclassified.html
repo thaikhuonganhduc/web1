@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Classifieds Search Form</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 13px;
+        }
+        form {
+            width: 500px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #ccffff;
+            border: 2px solid #0000cc;
+        }
+        td {
+            font-size: 13px;
+        }
+        h2 {
+            color: #ff0000;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        h4 {
+            font-size: 13px;
+            margin: 15px 0 5px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #666;
+        }
+        .opt {
+            display: inline-block;
+            width: 130px;
+        }
+        .keyword {
+            width: 98%;
+        }
+        input[type="image"] {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // Search: giả lập tìm kiếm
+        function timKiem() {
+            var f = document.getElementById("frmClassified");
+
+            // Mục đã chọn ở phần 1
+            var section = f.section.value;
+
+            // Các tờ báo đã tick ở phần 2
+            var pubs = [];
+            var cks = f.publication;
+            for (var i = 0; i < cks.length; i++) {
+                if (cks[i].checked) pubs.push(cks[i].value);
+            }
+
+            alert(
+                "Đang tìm kiếm...\n" +
+                "Section: " + section + "\n" +
+                "Publications: " + (pubs.length ? pubs.join(", ") : "(chưa chọn)") + "\n" +
+                "From: " + f.fromdate.value + "  To: " + f.todate.value + "\n" +
+                "Keywords: " + f.keywords.value
+            );
+            return false;
+        }
+
+        // Help: hiển thị 1 trang help (cửa sổ mới)
+        function troGiup() {
+            var w = window.open("", "help", "width=400,height=300");
+            w.document.write(
+                "<title>Help</title>" +
+                "<body style='font-family:Arial;font-size:13px'>" +
+                "<h3>Online Classifieds - Help</h3>" +
+                "<ol>" +
+                "<li>Chọn mục (section) cần tìm.</li>" +
+                "<li>Chọn một hoặc nhiều tờ báo.</li>" +
+                "<li>Nhập khoảng thời gian (mm/dd/yy).</li>" +
+                "<li>Nhập từ khóa mô tả tin rao vặt.</li>" +
+                "<li>Bấm <b>Search</b> để tìm, <b>Cancel</b> để xóa dữ liệu.</li>" +
+                "</ol>" +
+                "<input type='button' value='Close' onclick='window.close()'>"
+            );
+            w.document.close();
+            return false;
+        }
+
+        // Cancel: xóa dữ liệu trên form
+        function huy() {
+            document.getElementById("frmClassified").reset();
+            return false;
+        }
+    </script>
+</head>
+<body>
+
+<form id="frmClassified" action="#" method="post">
+    <table cellspacing="3" cellpadding="0" width="100%">
+
+        <!-- Tiêu đề -->
+        <tr>
+            <td>
+                <h2>Online Classifieds Search Form</h2>
+                <hr>
+            </td>
+        </tr>
+
+        <!-- 1) Sections -->
+        <tr>
+            <td>
+                <h4>1) Search for a classified in the following sections:</h4>
+                &nbsp;
+                <span class="opt"><input type="radio" name="section" value="Employment"> Employment</span>
+                <input type="radio" name="section" value="Personal"> Personal<br>
+                &nbsp;
+                <span class="opt"><input type="radio" name="section" value="For Sale" checked> For Sale</span>
+                <input type="radio" name="section" value="Miscellaneous"> Miscellanecus<br>
+                &nbsp;
+                <span class="opt"><input type="radio" name="section" value="Housing"> Housing</span>
+                <input type="radio" name="section" value="All of the above"> All of the above
+            </td>
+        </tr>
+
+        <!-- 2) Publications -->
+        <tr>
+            <td>
+                <h4>2) Search the following publications:</h4>
+                &nbsp;
+                <span class="opt" style="width:160px;"><input type="checkbox" name="publication" value="Midwest times" checked> Midwest times</span>
+                <span class="opt" style="width:110px;"><input type="checkbox" name="publication" value="Modern News"> Modern News</span>
+                <input type="checkbox" name="publication" value="Employment Today"> Employment Today<br>
+                &nbsp;
+                <span class="opt" style="width:160px;"><input type="checkbox" name="publication" value="Great Lakes Classifieds" checked> Great Lakes Classifieds</span>
+                <span class="opt" style="width:110px;"><input type="checkbox" name="publication" value="Middleton Daily"> Middleton Daily</span>
+                <input type="checkbox" name="publication" value="Cashtown Daily News"> Cashtown Daily News
+            </td>
+        </tr>
+
+        <!-- 3) Date range -->
+        <tr>
+            <td>
+                <h4>3) From to
+                    <input type="text" name="fromdate" size="12" value="mm/dd/yy">
+                    to
+                    <input type="text" name="todate" size="12" value="mm/dd/yy">
+                </h4>
+            </td>
+        </tr>
+
+        <!-- 4) Keywords -->
+        <tr>
+            <td>
+                <h4>4) Enter a few keywords to describe the classified.</h4>
+                <input type="text" name="keywords" class="keyword">
+            </td>
+        </tr>
+
+        <!-- 5) Buttons -->
+        <tr>
+            <td>
+                <h4>5) Click one of the options below:</h4>
+                <input type="image" src="../images/Search.gif" alt="Search" onclick="return timKiem()">
+                <input type="image" src="../images/Help.gif" alt="Help" onclick="return troGiup()">
+                <input type="image" src="../images/Cancel.gif" alt="Cancel" onclick="return huy()">
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>
